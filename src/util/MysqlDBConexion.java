@@ -14,7 +14,7 @@ public class MysqlDBConexion {
 	public static Connection getConexion(){
 		Connection con=null;
 		try {
-			con=DriverManager.getConnection("jdbc:mysql://localhost/mydb","root","mysql");
+			con=DriverManager.getConnection("jdbc:mysql://localhost/bd_proyecto","root","mysql");
 		}catch (Exception e) {
 			e.printStackTrace();
 		}

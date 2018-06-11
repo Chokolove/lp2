@@ -1,17 +1,17 @@
 package fabrica;
 
-import dao.BoletaDao;
-import dao.MySqlBoleta;
+import dao.AmpliacionesDAO;
+import dao.MySqlAmpliacion;
 
 public class FabricaMySql extends Fabrica {
 
-	
-	
 	@Override
-	public BoletaDao getBoletaDao() {
-		return new MySqlBoleta();
+	public AmpliacionesDAO getAmpliacionesDao() {
+		
+		return new MySqlAmpliacion();
 	}
 
-	
+
+
 	
 }

@@ -1,6 +1,6 @@
 package fabrica;
 
-import dao.BoletaDao;
+import dao.AmpliacionesDAO;
 
 public abstract class  Fabrica {
 
@@ -8,7 +8,7 @@ public abstract class  Fabrica {
 	public static final int TIPO_SQL_SERVER =2;
 
 	
-	public abstract BoletaDao getBoletaDao();
+	public abstract AmpliacionesDAO getAmpliacionesDao();
 
 	public static Fabrica getTipo(int tipo){
 		switch (tipo) {

@@ -10,17 +10,76 @@ import java.util.List;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import entidad.BoletaBean;
-import entidad.ClienteBean;
-import entidad.DetalleBoletaBean;
-import entidad.ProductoBean;
+import entidad.AmpliacionesBean;
+import entidad.EntidadBean;
+import entidad.ExpedienteBean;
+import entidad.TrabajadorBean;
 import util.MysqlDBConexion;
 
-public class MySqlBoleta implements BoletaDao{
+public class MySqlAmpliacion implements AmpliacionesDAO{
 
-	private static final Log log = LogFactory.getLog(MySqlBoleta.class);
+	private static final Log log = LogFactory.getLog(MySqlAmpliacion.class);
+
+	@Override
+	public ArrayList<ExpedienteBean> listaExpediente() {
+		ArrayList<ExpedienteBean> data = new ArrayList<ExpedienteBean>();
+		ExpedienteBean bean = null;
+		Connection conn = null;
+		PreparedStatement pstm = null;
+		try {
+			String sql = null;
+			conn = MysqlDBConexion.getConexion();
+			 sql ="SELECT * FROM expediente;";
+					pstm = conn.prepareStatement(sql);
+					
+					
+			log.info("---> SQL -> " + pstm);
+					
+			ResultSet rs = pstm.executeQuery();
+			
+			while(rs.next()){
+				bean = new ExpedienteBean();
+				bean.setIdExpediente(rs.getInt("NroExpediente"));
+				
+				TrabajadorBean trabajador = new TrabajadorBean();
+				trabajador.setIdTrabajador(rs.getInt("idTrabajador"));
+				bean.setTrabajador(trabajador);
+				
+				EntidadBean entidad = new EntidadBean();
+				entidad.setIdEntidad(rs.getInt("idEntidad"));
+				bean.setEntidad(entidad);
+				
+				bean.setEstado(rs.getString("Estado"));
+				bean.setFchaApertura(rs.getString("fchApertura"));
+				
+				data.add(bean);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally{
+			try {
+				conn.close();
+				pstm.close();
+			} catch (SQLException e) {
+			}
+		}
+		return data;
+	}
+
+	@Override
+	public int insertaAmpliacion(AmpliacionesBean ampliacion) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public ArrayList<AmpliacionesBean> consultaAmpliacion() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
-	public int inserta(BoletaBean boletaBean, List<DetalleBoletaBean> lstDetalle){
+}
+	/*public int inserta(BoletaBean boletaBean, List<DetalleBoletaBean> lstDetalle){
 		log.info("---> En MySqlBoleta-> inserta");
 		
 		
@@ -158,5 +217,5 @@ public class MySqlBoleta implements BoletaDao{
 			}
 		}
 		return data;
-	}
-}
+	}*/
+

@@ -88,8 +88,8 @@ DEFAULT CHARACTER SET = utf8;
 CREATE TABLE IF NOT EXISTS `BD_PROYECTO`.`empleado_servir` (
   `idEmpleado` INT NOT NULL AUTO_INCREMENT,
   `Nombre` VARCHAR(45) NOT NULL,
-  `Apellido Pat` VARCHAR(100) NOT NULL,
-  `Apellido Mat` VARCHAR(100) NOT NULL,
+  `apePat` VARCHAR(100) NOT NULL,
+  `apeMat` VARCHAR(100) NOT NULL,
   `Dni` CHAR(8) NOT NULL,
   `Sueldo` DOUBLE NULL DEFAULT NULL,
   `cargo_idCargo` INT(11) NOT NULL,
@@ -110,8 +110,8 @@ DEFAULT CHARACTER SET = utf8;
 CREATE TABLE IF NOT EXISTS `BD_PROYECTO`.`trabajador_estatal` (
   `idTrabajador` INT NOT NULL AUTO_INCREMENT,
   `Nombre` VARCHAR(100) NOT NULL,
-  `Apellido Pat` VARCHAR(100) NOT NULL,
-  `Apellido Mat` VARCHAR(100) NOT NULL,
+  `apePat` VARCHAR(100) NOT NULL,
+  `apeMat` VARCHAR(100) NOT NULL,
   `DNI` CHAR(8) NOT NULL,
   `entidad_estatal_idEntidad` INT(10) NOT NULL,
   PRIMARY KEY (`idTrabajador`, `entidad_estatal_idEntidad`),
@@ -180,14 +180,14 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 INSERT INTO `bd_proyecto`.`cargo` (`Nombre`) VALUES ('Administrador');
 INSERT INTO `bd_proyecto`.`cargo` (`Nombre`) VALUES ('Trabajador');
 
-INSERT INTO `bd_proyecto`.`empleado_servir` (`Nombre`, `Apellido Pat`, `Apellido Mat`, `Dni`, `Sueldo`, `cargo_idCargo`) VALUES ('Panchito', 'Sanchez', 'Sanchez', '99999999', '1500', '1');
-INSERT INTO `bd_proyecto`.`empleado_servir` (`Nombre`, `Apellido Pat`, `Apellido Mat`, `Dni`, `Sueldo`, `cargo_idCargo`) VALUES ('Nachito', 'Velazquez', 'Velazques', '99999998', '1700', '2');
+INSERT INTO `bd_proyecto`.`empleado_servir` (`Nombre`, `apePat`, `apeMat`, `Dni`, `Sueldo`, `cargo_idCargo`) VALUES ('Panchito', 'Sanchez', 'Sanchez', '99999999', '1500', '1');
+INSERT INTO `bd_proyecto`.`empleado_servir` (`Nombre`, `apePat`, `apeMat`, `Dni`, `Sueldo`, `cargo_idCargo`) VALUES ('Nachito', 'Velazquez', 'Velazques', '99999998', '1700', '2');
 
 INSERT INTO `bd_proyecto`.`entidad_estatal` (`poder_est`, `sector`, `ruc`, `nombre`, `direccion`) VALUES ('ASD', '194', '123456', 'Sunat', 'ZXC');
 INSERT INTO `bd_proyecto`.`entidad_estatal` (`poder_est`, `sector`, `ruc`, `nombre`, `direccion`) VALUES ('QWE', '179', '456798', 'Onpe', 'IOP');
 
-INSERT INTO `bd_proyecto`.`trabajador_estatal` (`Nombre`, `Apellido Pat`, `Apellido Mat`, `DNI`, `entidad_estatal_idEntidad`) VALUES ('Juanchito', 'Quispe', 'Quispe', '99999997', '1');
-INSERT INTO `bd_proyecto`.`trabajador_estatal` (`Nombre`, `Apellido Pat`, `Apellido Mat`, `DNI`, `entidad_estatal_idEntidad`) VALUES ('Brandon', 'Reategui', 'Reategui', '99999996', '2');
+INSERT INTO `bd_proyecto`.`trabajador_estatal` (`Nombre`, `apePat`, `apeMat`, `DNI`, `entidad_estatal_idEntidad`) VALUES ('Juanchito', 'Quispe', 'Quispe', '99999997', '1');
+INSERT INTO `bd_proyecto`.`trabajador_estatal` (`Nombre`, `apePat`, `apeMat`, `DNI`, `entidad_estatal_idEntidad`) VALUES ('Brandon', 'Reategui', 'Reategui', '99999996', '2');
 
 INSERT INTO `bd_proyecto`.`expediente` (`idTrabajador`, `idEntidad`, `Estado`, `fchApertura`) VALUES ('1', '1', 'Pendiente', '2018-05-05');
 INSERT INTO `bd_proyecto`.`expediente` (`idTrabajador`, `idEntidad`, `Estado`, `fchApertura`) VALUES ('2', '2', 'En Espera', '2018-04-04');
