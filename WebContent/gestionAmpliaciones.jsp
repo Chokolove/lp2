@@ -10,12 +10,14 @@
     <!-- link all the styles -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.27.5/css/uikit.gradient.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.27.5/css/components/sticky.gradient.css">
-
+	<link rel="stylesheet" href="assets/css/master.css">
+	
     <!-- link all the scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.27.5/js/uikit.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.27.5/js/components/sticky.js"></script>
-
+	<script src="assets/js/myScripts.js"></script>
+	
   </head>
   <body>
 
@@ -138,6 +140,59 @@
 
             </div>
           </div>
+        </section>
+        
+        <section class="expediente">
+	        <div class="uk-block uk-block-muted">
+		
+		      <div class="uk-container uk-margin-left uk-margin">
+		        <h3 class="uk-h2">Gestion de Ampliaciones</h3>
+		        <p class="uk-text-muted uk-text-slim">
+		          Entidad: Lorem<br>
+		          Expediente: ####
+		        </p>
+		      </div>
+		
+		      <div class="uk-container uk-container-center">
+		        <div class="uk-width-large-9-10 uk-container-center">
+		          <table class="uk-table uk-table-justify uk-table-hover">
+		            <thead>
+		                <tr>
+		                    <th>Numero de Documento</th>
+		                    <th>Nombre de Documento</th>
+		                    <th>Descripcion</th>
+		                </tr>
+		            </thead>
+		            <tbody>
+		                <tr>
+		                    <td>99999999</td>
+		                    <td>Table Data</td>
+		                    <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</td>
+		                </tr>
+		                <tr>
+		                    <td>99999999</td>
+		                    <td>Table Data</td>
+		                    <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</td>
+		                </tr>
+		                <tr>
+		                    <td>99999999</td>
+		                    <td>Table Data</td>
+		                    <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</td>
+		                </tr>
+		            </tbody>
+		          </table>
+		        </div>
+		
+		        <div class="uk-grid uk-flex-center uk-margin-left" data-uk-grid-margin>
+		          <div class="uk-width-small-4-5 uk-width-medium-1-2" data-uk-margin>
+		            <button class="uk-button uk-button-large">APROBAR</button>
+		          </div>
+		          <div class="uk-width-small-4-5 uk-width-medium-1-2" data-uk-margin>
+		            <button class="uk-button uk-button-large">SOLICITAR MAS DOCUMENTOS</button>
+		          </div>
+		        </div>
+		      </div>
+		    </div>
         </section>
 
       </div>
