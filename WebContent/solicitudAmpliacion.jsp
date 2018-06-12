@@ -19,7 +19,7 @@
   </head>
   <body>
 
-    <nav class="uk-navbar" data-uk-sticky="{ showup: true, animation: 'uk-animation-slide-top', clsactive: 'eb-navbar-active' }">
+    <nav class="uk-navbar navbarStick" data-uk-sticky="{ showup: true, animation: 'uk-animation-slide-top', clsactive: 'eb-navbar-active' }">
       <ul class="uk-navbar-nav">
         <li class=""><a href="#offcanvas" data-uk-offcanvas="{mode:'slide'}">&#9776;</a></li>
         <div class="uk-navbar-content">
