@@ -100,14 +100,6 @@
                                     </div>
                                 </div>
 
-                                <div class="uk-form-row">
-                                   <span class="uk-form-label">Radio input</span>
-                                   <div id="rad" class="uk-form-controls">
-                                   	<label><input type="radio" name="radio"> Trabajador</label>
-                                    <label><input type="radio" name="radio"> Entidad</label>
-                                    <label><input type="radio" name="radio"> Estado</label>
-                                  </div>
-                                </div>
 
                             </form>
                       </div>
@@ -119,7 +111,7 @@
                     <div class="uk-margin uk-margin-left">
 
 
-                      <div class="uk-block">
+                      <div class="uk-margin-top">
                         <div class="uk-margin-left">
                           <button class="uk-button uk-button-large uk-button-primary" type="button">Nuevo Expediente</button>
                         </div>
@@ -144,6 +136,8 @@
 	                        <th>Entidad</th>
 	                        <th>Estado</th>
 	                        <th>Fecha de Apertura</th>
+	                        <th>Editar</th>
+	                        <th>Eliminar</th>
 	                      </tr>
 	                    </thead>
 	                    <tbody>

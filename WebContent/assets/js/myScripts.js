@@ -19,8 +19,8 @@ $(document).ready(function(){
 		    } 
 		  }
 	});
-	
 });
+
 function eliminar(id){	
 	$('input[id=id_elimina]').val(id);
 	$('#idFormElimina').submit();
