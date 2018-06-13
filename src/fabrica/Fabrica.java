@@ -1,20 +1,22 @@
 package fabrica;
 
 import dao.AmpliacionesDAO;
+import dao.ExpedienteDAO;
 
 public abstract class  Fabrica {
 
-	public static final int TIPO_MYSQL =1;
-	public static final int TIPO_SQL_SERVER =2;
+	public static final int MYSQL =1;
+	public static final int SQLSERVER =2;
 
 	
 	public abstract AmpliacionesDAO getAmpliacionesDao();
+	public abstract ExpedienteDAO getExpedientesDAO();
 
-	public static Fabrica getTipo(int tipo){
+	public static Fabrica getFabrica(int tipo){
 		switch (tipo) {
-		case TIPO_MYSQL:
+		case MYSQL:
 			return new FabricaMySql();
-		case TIPO_SQL_SERVER:
+		case SQLSERVER:
 			return null;
 		}
 		return null;

@@ -2,7 +2,7 @@
     <wb-module deploy-name="LPII_Semana11_Transaccion_finalizadoV02">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
-        <property name="context-root" value="LPII_Semana11_Transaccion_finalizadoV02"/>
         <property name="java-output-path" value="/LPII_Semana11_Transaccion_finalizadoV02/build/classes"/>
+        <property name="context-root" value="ProyectoFinal"/>
     </wb-module>
 </project-modules>

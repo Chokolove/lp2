@@ -188,9 +188,13 @@ INSERT INTO `bd_proyecto`.`entidad_estatal` (`poder_est`, `sector`, `ruc`, `nomb
 
 INSERT INTO `bd_proyecto`.`trabajador_estatal` (`Nombre`, `apePat`, `apeMat`, `DNI`, `entidad_estatal_idEntidad`) VALUES ('Juanchito', 'Quispe', 'Quispe', '99999997', '1');
 INSERT INTO `bd_proyecto`.`trabajador_estatal` (`Nombre`, `apePat`, `apeMat`, `DNI`, `entidad_estatal_idEntidad`) VALUES ('Brandon', 'Reategui', 'Reategui', '99999996', '2');
+INSERT INTO `bd_proyecto`.`trabajador_estatal` (`Nombre`, `apePat`, `apeMat`, `DNI`, `entidad_estatal_idEntidad`) VALUES ('Emerita', 'Sanchez', 'Sanchez', '99999995', '1');
+INSERT INTO `bd_proyecto`.`trabajador_estatal` (`Nombre`, `apePat`, `apeMat`, `DNI`, `entidad_estatal_idEntidad`) VALUES ('Alexnder', 'Galvez', 'Galvez', '9999994', '2');
 
 INSERT INTO `bd_proyecto`.`expediente` (`idTrabajador`, `idEntidad`, `Estado`, `fchApertura`) VALUES ('1', '1', 'Pendiente', '2018-05-05');
 INSERT INTO `bd_proyecto`.`expediente` (`idTrabajador`, `idEntidad`, `Estado`, `fchApertura`) VALUES ('2', '2', 'En Espera', '2018-04-04');
+INSERT INTO `bd_proyecto`.`expediente` (`idTrabajador`, `idEntidad`, `Estado`, `fchApertura`) VALUES ('3', '1', 'Pendiente', '2018-06-06');
+INSERT INTO `bd_proyecto`.`expediente` (`idTrabajador`, `idEntidad`, `Estado`, `fchApertura`) VALUES ('4', '1', 'En Espera', '2018-07-07');
 
 INSERT INTO `bd_proyecto`.`documento` (`NroExpediente`, `descripcion`, `link`) VALUES ('1', 'DNI', 'Test');
 INSERT INTO `bd_proyecto`.`documento` (`NroExpediente`, `descripcion`, `link`) VALUES ('1', 'Razon', 'Test');

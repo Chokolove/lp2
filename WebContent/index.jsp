@@ -45,7 +45,13 @@
         </div>
         <ul class="uk-nav uk-nav-offcanvas uk-nav-parent-icon" data-uk-nav>
           <li>
+            <a href="index.jsp">Main</a>
+          </li>
+          <li>
             <a href="gestionAmpliaciones.jsp">Gestion de Ampliaciones</a>
+          </li>
+           <li>
+            <a href="Expediente?metodo=lista&filtro=">Expediente CRUD</a>
           </li>
           <li class="uk-parent">
             <a href="#">Reportes</a>
