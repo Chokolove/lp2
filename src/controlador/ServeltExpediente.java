@@ -77,7 +77,7 @@ public class ServeltExpediente extends HttpServlet {
 			e.printStackTrace();
 		} 
 		request.setAttribute("Expedientes", lista);
-		request.getRequestDispatcher("/expedienteCRUD.jsp").forward(request, response);
+		request.getRequestDispatcher("//Expediente?metodo=lista&filtro=").forward(request, response);
 		
 		
 	}	
@@ -94,7 +94,7 @@ public class ServeltExpediente extends HttpServlet {
 			e.printStackTrace();
 		} 
 		request.setAttribute("Expedientes", lista);
-		request.getRequestDispatcher("/expedienteCRUD.jsp").forward(request, response);
+		request.getRequestDispatcher("//Expediente?metodo=lista&filtro=").forward(request, response);
 	}	
 	protected void actualiza(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
