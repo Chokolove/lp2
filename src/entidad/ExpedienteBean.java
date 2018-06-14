@@ -6,7 +6,6 @@ public class ExpedienteBean {
 		
 	private int idExpediente;
 	private TrabajadorBean trabajador;
-	private EntidadBean entidad;
 	private String estado;
 	private String fchaApertura;
 	public int getIdExpediente() {
@@ -20,12 +19,6 @@ public class ExpedienteBean {
 	}
 	public void setTrabajador(TrabajadorBean trabajador) {
 		this.trabajador = trabajador;
-	}
-	public EntidadBean getEntidad() {
-		return entidad;
-	}
-	public void setEntidad(EntidadBean entidad) {
-		this.entidad = entidad;
 	}
 	public String getEstado() {
 		return estado;
