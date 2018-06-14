@@ -29,7 +29,7 @@ public class MySqlExpediente implements ExpedienteDAO{
 		
 		List<ExpedienteBean> lista = new ArrayList<ExpedienteBean>();
 		try {
-			String sql = "SELECT * FROM expediente ex inner join trabajador_estatal tr on ex.idTrabajador=tr.idTrabajador inner join entidad_estatal ent on ex.idEntidad=ent.idEntidad where ent.nombre like ? ;";
+			String sql = "SELECT * FROM expediente ex inner join trabajador_estatal tr on ex.idTrabajador=tr.idTrabajador inner join entidad_estatal ent on tr.entidad_estatal_idEntidad=ent.idEntidad where ent.nombre like ? ;";
 			conn = new MysqlDBConexion().getConexion();
 			pstm = conn.prepareStatement(sql);
 			pstm.setString(1, filtro + "%");
@@ -42,28 +42,64 @@ public class MySqlExpediente implements ExpedienteDAO{
 				
 				TrabajadorBean trabajador = new TrabajadorBean();
 				trabajador.setIdTrabajador(rs.getInt(2));
-				trabajador.setNombre(rs.getString(7));
-				trabajador.setApePat(rs.getString(8));
-				trabajador.setApeMat(rs.getString(9));
-				trabajador.setDni(rs.getInt(10));
-				EntidadBean ent = new EntidadBean();
-				ent.setIdEntidad(rs.getInt(11));
-				trabajador.setEntidad(ent);
-				
-				bean.setTrabajador(trabajador);
+				trabajador.setNombre(rs.getString(6));
+				trabajador.setApePat(rs.getString(7));
+				trabajador.setApeMat(rs.getString(8));
+				trabajador.setDni(rs.getInt(9));
 				
 				EntidadBean entidad = new EntidadBean();
-				entidad.setIdEntidad(rs.getInt(3));
-				entidad.setPoderEst(rs.getString(13));
-				entidad.setSector(rs.getString(14));
-				entidad.setRuc(rs.getInt(15));
-				entidad.setNombre(rs.getString(16));
-				entidad.setDireccion(rs.getString(17));
+				entidad.setIdEntidad(rs.getInt(11));
+				entidad.setPoderEst(rs.getString(12));
+				entidad.setSector(rs.getString(13));
+				entidad.setRuc(rs.getInt(14));
+				entidad.setNombre(rs.getString(15));
+				entidad.setDireccion(rs.getString(16));
+				
+				trabajador.setEntidad(entidad);
+				bean.setTrabajador(trabajador);
+				
+				bean.setEstado(rs.getString(3));
+				bean.setFchaApertura(rs.getString(4));
+				
+				lista.add(bean);
+			}
+		} catch (Exception e) {
+			log.info(e);
+		} finally {
+			try {
+				if (rs != null)rs.close();
+				if (pstm != null)pstm.close();
+				if (conn != null)conn.close();
+			} catch (SQLException e) {}
+		}
+		return lista;
+	}
+	@Override
+	public List<TrabajadorBean> listaTrabajador() {
+		Connection conn = null;
+		PreparedStatement pstm = null;
+		ResultSet rs = null;
+		
+		List<TrabajadorBean> lista = new ArrayList<TrabajadorBean>();
+		try {
+			String sql = "SELECT * FROM trabajador_estatal;";
+			conn = new MysqlDBConexion().getConexion();
+			pstm = conn.prepareStatement(sql);
+			log.info(pstm);
+			rs = pstm.executeQuery();
+			TrabajadorBean bean = null;
+			while(rs.next()){
+				bean = new TrabajadorBean();
+				bean.setIdTrabajador(rs.getInt(1));
+				bean.setNombre(rs.getString(2));
+				bean.setApePat(rs.getString(3));
+				bean.setApeMat(rs.getString(4));
+				bean.setDni(rs.getInt(5));
+				
+				EntidadBean entidad = new EntidadBean();
+				entidad.setIdEntidad(rs.getInt(6));
 				
 				bean.setEntidad(entidad);
-				
-				bean.setEstado(rs.getString(4));
-				bean.setFchaApertura(rs.getString(5));
 				
 				lista.add(bean);
 			}
@@ -113,13 +149,12 @@ public class MySqlExpediente implements ExpedienteDAO{
 		PreparedStatement pstm = null;
 		int salida = -1;
 		try {
-			String sql = "insert into expediente values(null,?,?,?,?)";
+			String sql = "insert into expediente values(null,?,?,?)";
 			conn = new MysqlDBConexion().getConexion();
 			pstm = conn.prepareStatement(sql);
 			pstm.setInt(1, obj.getTrabajador().getIdTrabajador());
-			pstm.setInt(2, obj.getEntidad().getIdEntidad());
-			pstm.setString(3, obj.getEstado());
-			pstm.setString(4, obj.getFchaApertura());
+			pstm.setString(2, obj.getEstado());
+			pstm.setString(3, obj.getFchaApertura());
 			
 			log.info(pstm);
 			
@@ -144,14 +179,13 @@ public class MySqlExpediente implements ExpedienteDAO{
 		PreparedStatement pstm = null;
 		int salida = -1;
 		try {
-			String sql = "update concurso set idTrabajador =?, idEntidad =?, Estado =?, fchApertura =? where NroExpediente =? ";
+			String sql = "update expediente set idTrabajador =?, Estado =?, fchApertura =? where NroExpediente =? ";
 			conn = new MysqlDBConexion().getConexion();
 			pstm = conn.prepareStatement(sql);
 			pstm.setInt(1, obj.getTrabajador().getIdTrabajador());
-			pstm.setInt(2, obj.getEntidad().getIdEntidad());
-			pstm.setString(3, obj.getEstado());
-			pstm.setString(4, obj.getFchaApertura());
-			pstm.setInt(5, obj.getIdExpediente());
+			pstm.setString(2, obj.getEstado());
+			pstm.setString(3, obj.getFchaApertura());
+			pstm.setInt(4, obj.getIdExpediente());
 			log.info(pstm);
 			
 			salida = pstm.executeUpdate();
@@ -167,5 +201,7 @@ public class MySqlExpediente implements ExpedienteDAO{
 		}
 		return salida;
 	}
+
+	
 
 }

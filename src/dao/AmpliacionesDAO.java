@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import entidad.AmpliacionesBean;
 import entidad.ExpedienteBean;
+import entidad.TrabajadorBean;
 
 public interface AmpliacionesDAO {
 	

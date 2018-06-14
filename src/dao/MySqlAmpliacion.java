@@ -45,9 +45,6 @@ public class MySqlAmpliacion implements AmpliacionesDAO{
 				trabajador.setIdTrabajador(rs.getInt("idTrabajador"));
 				bean.setTrabajador(trabajador);
 				
-				EntidadBean entidad = new EntidadBean();
-				entidad.setIdEntidad(rs.getInt("idEntidad"));
-				bean.setEntidad(entidad);
 				
 				bean.setEstado(rs.getString("Estado"));
 				bean.setFchaApertura(rs.getString("fchApertura"));
@@ -65,6 +62,7 @@ public class MySqlAmpliacion implements AmpliacionesDAO{
 		}
 		return data;
 	}
+	
 
 	@Override
 	public int insertaAmpliacion(AmpliacionesBean ampliacion) {
@@ -77,6 +75,8 @@ public class MySqlAmpliacion implements AmpliacionesDAO{
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	
 	
 }
 	/*public int inserta(BoletaBean boletaBean, List<DetalleBoletaBean> lstDetalle){

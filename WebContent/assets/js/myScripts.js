@@ -27,16 +27,12 @@ function eliminar(id){
 }
 
 function registrar(){	
-	$('#idModalRegistra').modal("show");
 }
 
-function editar(id,nombre,fechaInicio,fechaFin,estado){	
-	//document.getElementById("id_nombre").value ="ELBITA"
+function editar(id,idTra,estado,fchApertura){	
 	
 	$('input[id=id_ID]').val(id);
-	$('input[id=id_nombre]').val(nombre);
-	$('input[id=id_fechaInicio]').val(fechaInicio);
-	$('input[id=id_fechaFin]').val(fechaFin);
-	$('select[id=id_estado]').val(estado);
-	$('#idModalActualiza').modal("show");
+	$('select[id=idTra]').val(idTra);
+	$('select[id=estadoAct]').val(estado);
+	$('input[id=fecha_ingresoAct]').val(fchApertura);
 }

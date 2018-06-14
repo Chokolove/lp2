@@ -44,12 +44,15 @@ public class ServeltExpediente extends HttpServlet {
 		
 		String filtro = request.getParameter("filtro");
 		List<ExpedienteBean> lista = null;
+		List<TrabajadorBean> lista2 = null;
 		try {
 			lista =  dao.consultaExpediente(filtro);
+			lista2 = dao.listaTrabajador();
 		} catch (Exception e) {
 			e.printStackTrace();
 		} 
 		request.setAttribute("Expedientes", lista);
+		request.setAttribute("Trabajadores", lista2);
 		request.getRequestDispatcher("/expedienteCRUD.jsp").forward(request, response);
 	}	
 	protected void registra(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -59,9 +62,6 @@ public class ServeltExpediente extends HttpServlet {
 		String idTrabjador = request.getParameter("idTrabjador");
 		TrabajadorBean trabajador = new TrabajadorBean();
 		trabajador.setIdTrabajador(Integer.parseInt(idTrabjador));
-		String idEntidad = request.getParameter("idEntidad");
-		EntidadBean entidad = new EntidadBean();
-		entidad.setIdEntidad(Integer.parseInt(idEntidad));
 		String Estado = request.getParameter("Estado");
 		String fchApertura= request.getParameter("fchApertura");
 		
@@ -69,7 +69,6 @@ public class ServeltExpediente extends HttpServlet {
 		try {
 			ExpedienteBean obj = new ExpedienteBean(); 
 			obj.setTrabajador(trabajador);
-			obj.setEntidad(entidad);
 			obj.setEstado(Estado);
 			obj.setFchaApertura(fchApertura);
 			dao.insertaExpediente(obj);
@@ -106,17 +105,14 @@ public class ServeltExpediente extends HttpServlet {
 		String idTrabjador = request.getParameter("idTrabjador");
 		TrabajadorBean trabajador = new TrabajadorBean();
 		trabajador.setIdTrabajador(Integer.parseInt(idTrabjador));
-		String idEntidad = request.getParameter("idEntidad");
-		EntidadBean entidad = new EntidadBean();
-		entidad.setIdEntidad(Integer.parseInt(idEntidad));
 		String Estado = request.getParameter("Estado");
 		String fchApertura= request.getParameter("fchApertura");
 		
 		List<ExpedienteBean> lista = null;
 		try {
 			ExpedienteBean obj = new ExpedienteBean();
+			obj.setIdExpediente(Integer.parseInt(idExpediente));
 			obj.setTrabajador(trabajador);
-			obj.setEntidad(entidad);
 			obj.setEstado(Estado);
 			obj.setFchaApertura(fchApertura);
 			dao.actualizaExpediente(obj);
@@ -125,7 +121,7 @@ public class ServeltExpediente extends HttpServlet {
 			e.printStackTrace();
 		} 
 		request.setAttribute("Expedientes", lista);
-		request.getRequestDispatcher("/expedienteCRUD.jsp").forward(request, response);
+		request.getRequestDispatcher("/Expediente?metodo=lista&filtro=").forward(request, response);
 		
 		
 	}	
