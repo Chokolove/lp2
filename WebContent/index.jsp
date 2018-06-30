@@ -53,6 +53,9 @@
            <li>
             <a href="Expediente?metodo=lista&filtro=">Expediente CRUD</a>
           </li>
+           <li>
+            <a href="Documento?metodo=lista&filtro=">Documento CRUD</a>
+          </li>
           <li class="uk-parent">
             <a href="#">Reportes</a>
             <ul class="uk-nav-sub">
