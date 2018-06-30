@@ -1,6 +1,7 @@
 package fabrica;
 
 import dao.AmpliacionesDAO;
+import dao.EmpleadoDAO;
 import dao.ExpedienteDAO;
 
 public abstract class  Fabrica {
@@ -11,7 +12,7 @@ public abstract class  Fabrica {
 	
 	public abstract AmpliacionesDAO getAmpliacionesDao();
 	public abstract ExpedienteDAO getExpedientesDAO();
-
+	public abstract EmpleadoDAO getEmpleadoDAO();
 	public static Fabrica getFabrica(int tipo){
 		switch (tipo) {
 		case MYSQL:
