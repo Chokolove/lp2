@@ -3,6 +3,7 @@ package fabrica;
 import dao.AmpliacionesDAO;
 import dao.DocumentoDAO;
 import dao.EmpleadoDAO;
+import dao.EntidadDAO;
 import dao.ExpedienteDAO;
 
 public abstract class  Fabrica {
@@ -18,6 +19,7 @@ public abstract class  Fabrica {
 
 
 	public abstract EmpleadoDAO getEmpleadoDAO();
+	public abstract EntidadDAO getEntidadDAO();
 
 	public static Fabrica getFabrica(int tipo){
 		switch (tipo) {
@@ -28,6 +30,5 @@ public abstract class  Fabrica {
 		}
 		return null;
 	}
-	
 	
 }

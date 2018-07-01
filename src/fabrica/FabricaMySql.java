@@ -3,9 +3,11 @@ package fabrica;
 import dao.AmpliacionesDAO;
 import dao.DocumentoDAO;
 import dao.EmpleadoDAO;
+import dao.EntidadDAO;
 import dao.ExpedienteDAO;
 import dao.MySqlAmpliacion;
 import dao.MySqlDocumento;
+import dao.MySqlEntidad;
 import dao.MySqlExpediente;
 import dao.MySqlEmpleado;
 
@@ -33,6 +35,12 @@ public class FabricaMySql extends Fabrica {
 		// TODO Auto-generated method stub
 		return new MySqlEmpleado();
 
+	}
+
+	@Override
+	public EntidadDAO getEntidadDAO() {
+		// TODO Auto-generated method stub
+		return new MySqlEntidad();
 	}
 
 
