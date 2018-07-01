@@ -1,11 +1,8 @@
 package fabrica;
 
 import dao.AmpliacionesDAO;
-<<<<<<< HEAD
 import dao.DocumentoDAO;
-=======
 import dao.EmpleadoDAO;
->>>>>>> origin/NicoleSa
 import dao.ExpedienteDAO;
 
 public abstract class  Fabrica {

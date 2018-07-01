@@ -1,11 +1,8 @@
 package fabrica;
 
 import dao.AmpliacionesDAO;
-<<<<<<< HEAD
 import dao.DocumentoDAO;
-=======
 import dao.EmpleadoDAO;
->>>>>>> origin/NicoleSa
 import dao.ExpedienteDAO;
 import dao.MySqlAmpliacion;
 import dao.MySqlDocumento;
@@ -31,7 +28,7 @@ public class FabricaMySql extends Fabrica {
 	public DocumentoDAO getDocumentosDAO() {
 		// TODO Auto-generated method stub
 		return new MySqlDocumento();
-
+	}
 	public EmpleadoDAO getEmpleadoDAO() {
 		// TODO Auto-generated method stub
 		return new MySqlEmpleado();

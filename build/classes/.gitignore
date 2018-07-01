@@ -1,3 +1,6 @@
 /controlador/
 /dao/
+/entidad/
 /fabrica/
+/log4j.properties
+/util/
