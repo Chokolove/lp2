@@ -1,7 +1,11 @@
 package fabrica;
 
 import dao.AmpliacionesDAO;
+<<<<<<< HEAD
 import dao.DocumentoDAO;
+=======
+import dao.EmpleadoDAO;
+>>>>>>> origin/NicoleSa
 import dao.ExpedienteDAO;
 
 public abstract class  Fabrica {
@@ -12,7 +16,11 @@ public abstract class  Fabrica {
 	
 	public abstract AmpliacionesDAO getAmpliacionesDao();
 	public abstract ExpedienteDAO getExpedientesDAO();
+
 	public abstract DocumentoDAO getDocumentosDAO();
+
+
+	public abstract EmpleadoDAO getEmpleadoDAO();
 
 	public static Fabrica getFabrica(int tipo){
 		switch (tipo) {

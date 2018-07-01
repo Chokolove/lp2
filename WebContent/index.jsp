@@ -51,6 +51,9 @@
             <a href="gestionAmpliaciones.jsp">Gestion de Ampliaciones</a>
           </li>
            <li>
+            <a href="Empleado?metodo=lista&filtro=">Empleado CRUD</a>
+          </li>
+           <li>
             <a href="Expediente?metodo=lista&filtro=">Expediente CRUD</a>
           </li>
            <li>
