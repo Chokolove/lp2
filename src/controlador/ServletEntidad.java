@@ -49,7 +49,6 @@ public class ServletEntidad extends HttpServlet {
 		String filtro = request.getParameter("filtro");
 		List<EntidadBean> lista = null;
 		try {
-			lista =  dao.listaEntidad();
 			lista =  dao.consultaEntidadPorNombre(filtro);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -61,11 +60,11 @@ public class ServletEntidad extends HttpServlet {
 		Fabrica fabrica = Fabrica.getFabrica(Fabrica.MYSQL);
 		EntidadDAO dao = fabrica.getEntidadDAO();
 		
-		String pString = request.getParameter("Poder");
-		String secString= request.getParameter("Sector");
-		String rucString= request.getParameter("Ruc");
-		String nomString= request.getParameter("Nombre");
-		String direString= request.getParameter("Direccion");
+		String pString = request.getParameter("poder_est");
+		String secString= request.getParameter("sector");
+		String rucString= request.getParameter("ruc");
+		String nomString= request.getParameter("nombre");
+		String direString= request.getParameter("direccion");
 		
 		List<EntidadBean> lista = null;
 		try {
@@ -82,7 +81,7 @@ public class ServletEntidad extends HttpServlet {
 			e.printStackTrace();
 		} 
 		request.setAttribute("Entidad", lista);
-		request.getRequestDispatcher("/entidadCRUD.jsp").forward(request, response);	
+		request.getRequestDispatcher("//Entidad?metodo=lista&filtro=").forward(request, response);	
 	}	
 	protected void elimina(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Fabrica fabrica = Fabrica.getFabrica(Fabrica.MYSQL);
@@ -97,7 +96,7 @@ public class ServletEntidad extends HttpServlet {
 			e.printStackTrace();
 		} 
 		request.setAttribute("Entidad", lista);
-		request.getRequestDispatcher("/entidadCRUD.jsp").forward(request, response);	
+		request.getRequestDispatcher("//Entidad?metodo=lista&filtro=").forward(request, response);	
 	}	
 	protected void actualiza(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
@@ -127,7 +126,7 @@ public class ServletEntidad extends HttpServlet {
 		} catch (Exception e) {
 			e.printStackTrace();
 		request.setAttribute("Entidad", lista);
-		request.getRequestDispatcher("/entidadCRUD.jsp").forward(request, response);
+		request.getRequestDispatcher("//Entidad?metodo=lista&filtro=").forward(request, response);
 	}	
 
 }

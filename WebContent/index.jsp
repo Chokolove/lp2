@@ -21,54 +21,7 @@
   </head>
   <body>
 
-    <nav class="uk-navbar navbarStick" data-uk-sticky="{ showup: true, animation: 'uk-animation-slide-top', clsactive: 'eb-navbar-active' }">
-      <ul class="uk-navbar-nav">
-        <li class=""><a href="#offcanvas" data-uk-offcanvas="{mode:'slide'}">&#9776;</a></li>
-        <div class="uk-navbar-content">
-          Panchita Juliana
-        </div>
-      </ul>
-      <div class="uk-navbar-flip">
-        <ul class="uk-navbar-nav">
-          <div class="uk-navbar-content">
-            InsertarHora
-          </div>
-          <li><a href=""><i class="uk-icon-power-off"></i></a></li>
-        </ul>
-      </div>
-    </nav>
-
-    <div id="offcanvas" class="uk-offcanvas">
-      <div class="uk-offcanvas-bar">
-        <div class="uk-panel">
-          <h3 class="uk-panel-title">Panchita Juliana</h3>
-        </div>
-        <ul class="uk-nav uk-nav-offcanvas uk-nav-parent-icon" data-uk-nav>
-          <li>
-            <a href="index.jsp">Main</a>
-          </li>
-          <li>
-            <a href="gestionAmpliaciones.jsp">Gestion de Ampliaciones</a>
-          </li>
-           <li>
-            <a href="Empleado?metodo=lista&filtro=">Empleado CRUD</a>
-          </li>
-           <li>
-            <a href="Expediente?metodo=lista&filtro=">Expediente CRUD</a>
-          </li>
-           <li>
-            <a href="Documento?metodo=lista&filtro=">Documento CRUD</a>
-          </li>
-          <li class="uk-parent">
-            <a href="#">Reportes</a>
-            <ul class="uk-nav-sub">
-              <li><a href="">ejemplo1</a></li>
-              <li><a href="">ejemplo2</a></li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-    </div>
+    <jsp:include page="navbar.jsp"></jsp:include>
 
     <div class="uk-container uk-flex uk-flex-center uk-margin-top uk-align-center">
       <img src="assets/images/back1.PNG" alt="">

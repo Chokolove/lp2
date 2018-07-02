@@ -2,11 +2,17 @@ package entidad;
 
 public class EmpleadoBean {
 	
-	private int idEmpleado;
+	private int idEmpleado,dni;
 	private String nombre, apePat, apeMat;
 	private double sueldo;
 	private CargoBean cargo;
 	
+	public int getDni() {
+		return dni;
+	}
+	public void setDni(int dni) {
+		this.dni = dni;
+	}
 	public int getIdEmpleado() {
 		return idEmpleado;
 	}

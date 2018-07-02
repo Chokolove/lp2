@@ -22,7 +22,7 @@ USE `BD_PROYECTO` ;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `BD_PROYECTO`.`cargo` (
   `idCargo` INT(11) NOT NULL AUTO_INCREMENT,
-  `Nombre` VARCHAR(45) NOT NULL,
+  `nomCargo` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`idCargo`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
@@ -173,11 +173,19 @@ SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
 
-INSERT INTO `bd_proyecto`.`cargo` (`Nombre`) VALUES ('Administrador');
-INSERT INTO `bd_proyecto`.`cargo` (`Nombre`) VALUES ('Trabajador');
+INSERT INTO `bd_proyecto`.`cargo` (`nomCargo`) VALUES ('Administrador');
+INSERT INTO `bd_proyecto`.`cargo` (`nomCargo`) VALUES ('Trabajador');
+INSERT INTO `bd_proyecto`.`cargo` (`nomCargo`) VALUES ('Analista Legal');
+INSERT INTO `bd_proyecto`.`cargo` (`nomCargo`) VALUES ('Secretaria Tecnica');
+INSERT INTO `bd_proyecto`.`cargo` (`nomCargo`) VALUES ('Presidente');
+
 
 INSERT INTO `bd_proyecto`.`empleado_servir` (`Nombre`, `apePat`, `apeMat`, `Dni`, `Sueldo`, `cargo_idCargo`) VALUES ('Panchito', 'Sanchez', 'Sanchez', '99999999', '1500', '1');
 INSERT INTO `bd_proyecto`.`empleado_servir` (`Nombre`, `apePat`, `apeMat`, `Dni`, `Sueldo`, `cargo_idCargo`) VALUES ('Nachito', 'Velazquez', 'Velazques', '99999998', '1700', '2');
+INSERT INTO `bd_proyecto`.`empleado_servir` (`Nombre`, `apePat`, `apeMat`, `Dni`, `Sueldo`, `cargo_idCargo`) VALUES ('Carlos', 'Llamosas', 'Duarte', '99999997', '3000', '1');
+INSERT INTO `bd_proyecto`.`empleado_servir` (`Nombre`, `apePat`, `apeMat`, `Dni`, `Sueldo`, `cargo_idCargo`) VALUES ('Jorge', 'Jacinto', 'Sersez', '99999996', '2500', '3');
+INSERT INTO `bd_proyecto`.`empleado_servir` (`Nombre`, `apePat`, `apeMat`, `Dni`, `Sueldo`, `cargo_idCargo`) VALUES ('Reverz', 'Gutierrez', 'Seramin', '99999995', '1500', '4');
+
 
 INSERT INTO `bd_proyecto`.`entidad_estatal` (`poder_est`, `sector`, `ruc`, `nombre`, `direccion`) VALUES ('ASD', '194', '123456', 'Sunat', 'ZXC');
 INSERT INTO `bd_proyecto`.`entidad_estatal` (`poder_est`, `sector`, `ruc`, `nombre`, `direccion`) VALUES ('QWE', '179', '456798', 'Onpe', 'IOP');
@@ -206,4 +214,9 @@ INSERT INTO `bd_proyecto`.`detalleamplvsdoc` (`idampliaciones`, `idDoc`) VALUES 
 INSERT INTO `bd_proyecto`.`detalleamplvsdoc` (`idampliaciones`, `idDoc`) VALUES ('1', '2');
 INSERT INTO `bd_proyecto`.`detalleamplvsdoc` (`idampliaciones`, `idDoc`) VALUES ('2', '3');
 INSERT INTO `bd_proyecto`.`detalleamplvsdoc` (`idampliaciones`, `idDoc`) VALUES ('2', '4');
+
+INSERT INTO `bd_proyecto`.`usuario` (`usuario`, `contrasena`, `empleado_idEmpleado`) VALUES ('admin', 'qwer', '3');
+INSERT INTO `bd_proyecto`.`usuario` (`usuario`, `contrasena`, `empleado_idEmpleado`) VALUES ('usu1', '1234', '1');
+INSERT INTO `bd_proyecto`.`usuario` (`usuario`, `contrasena`, `empleado_idEmpleado`) VALUES ('sec', '1234', '6');
+INSERT INTO `bd_proyecto`.`usuario` (`usuario`, `contrasena`, `empleado_idEmpleado`) VALUES ('ana', '1234', '5');
 

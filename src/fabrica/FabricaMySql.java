@@ -9,6 +9,8 @@ import dao.MySqlAmpliacion;
 import dao.MySqlDocumento;
 import dao.MySqlEntidad;
 import dao.MySqlExpediente;
+import dao.MySqlUsuario;
+import dao.UsuarioDAO;
 import dao.MySqlEmpleado;
 
 public class FabricaMySql extends Fabrica {
@@ -41,6 +43,12 @@ public class FabricaMySql extends Fabrica {
 	public EntidadDAO getEntidadDAO() {
 		// TODO Auto-generated method stub
 		return new MySqlEntidad();
+	}
+
+	@Override
+	public UsuarioDAO getUsuarioDAO() {
+		// TODO Auto-generated method stub
+		return new MySqlUsuario();
 	}
 
 

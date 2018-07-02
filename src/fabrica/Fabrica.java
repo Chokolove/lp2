@@ -5,6 +5,7 @@ import dao.DocumentoDAO;
 import dao.EmpleadoDAO;
 import dao.EntidadDAO;
 import dao.ExpedienteDAO;
+import dao.UsuarioDAO;
 
 public abstract class  Fabrica {
 
@@ -20,6 +21,7 @@ public abstract class  Fabrica {
 
 	public abstract EmpleadoDAO getEmpleadoDAO();
 	public abstract EntidadDAO getEntidadDAO();
+	public abstract UsuarioDAO getUsuarioDAO();
 
 	public static Fabrica getFabrica(int tipo){
 		switch (tipo) {

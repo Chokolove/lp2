@@ -26,51 +26,7 @@
   </head>
   <body>
 
-    <nav class="uk-navbar navbarStick" data-uk-sticky="{ showup: true, animation: 'uk-animation-slide-top', clsactive: 'eb-navbar-active' }">
-      <ul class="uk-navbar-nav">
-        <li class=""><a href="#offcanvas" data-uk-offcanvas="{mode:'slide'}">&#9776;</a></li>
-        <div class="uk-navbar-content">
-          Panchita Juliana
-        </div>
-      </ul>
-      <div class="uk-navbar-flip">
-        <ul class="uk-navbar-nav">
-          <div class="uk-navbar-content">
-            InsertarHora
-          </div>
-          <li><a href=""><i class="uk-icon-power-off"></i></a></li>
-        </ul>
-      </div>
-    </nav>
-
-    <div id="offcanvas" class="uk-offcanvas">
-      <div class="uk-offcanvas-bar">
-        <div class="uk-panel">
-          <h3 class="uk-panel-title">Panchita Juliana</h3>
-        </div>
-        <ul class="uk-nav uk-nav-offcanvas uk-nav-parent-icon" data-uk-nav>
-          <li>
-            <a href="index.jsp">Main</a>
-          </li>
-          <li>
-            <a href="gestionAmpliaciones.jsp">Gestion de Ampliaciones</a>
-          </li>
-           <li>
-            <a href="Expediente?metodo=lista&filtro=">Expediente CRUD</a>
-          </li>
-          <li>
-            <a href="Documento?metodo=lista&filtro=">Documento CRUD</a>
-          </li>
-          <li class="uk-parent">
-            <a href="#">Reportes</a>
-            <ul class="uk-nav-sub">
-              <li><a href="">ejemplo1</a></li>
-              <li><a href="">ejemplo2</a></li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-    </div>
+    <jsp:include page="navbar.jsp"></jsp:include>
 
     <div class="uk-block">
     	<form id="idFormElimina" action="Documento">
@@ -160,7 +116,7 @@
 	                      		<td>${x.descripcion}</td>
 	                      		<td>${x.link}</td>
 	                      		<td>
-	                      			<a href="#" class="uk-button" data-uk-modal="{target:'#modal2'}" onclick="editar('${x.idDocumento}','${x.expediente.idExpediente}','${x.descripcion}','${x.link}');"><i class="uk-icon-pencil"></i></a>
+	                      			<a href="#" class="uk-button" data-uk-modal="{target:'#modal2'}" onclick="editarDocumento('${x.idDocumento}','${x.expediente.idExpediente}','${x.descripcion}','${x.link}');"><i class="uk-icon-pencil"></i></a>
 	                      		</td>
 	                      		<td>
 	                      			<a href="#" class="uk-button" onclick="eliminar('${x.idDocumento}');"><i class="uk-icon-times-circle"></i></a>
@@ -208,14 +164,14 @@
 	           <div class="uk-form-row">
                  <label class="uk-form-label" for="Desc">Descripcion</label>
                  <div class="uk-form-controls">
-                 	  <input id="Desc" type="text" name="Descripcion" >
+                 	  <input type="text" name="Descripcion" >
                  </div>
                </div>
 	           
 	           <div class="uk-form-row">
                     <label class="uk-form-label" for="lnk">Link</label>
                     <div class="uk-form-controls">
-                        <input id="lnk" type="text" name="Link">
+                        <input type="text" name="Link">
                     </div>
                 </div>
                 <div class="uk-form-row uk-text-center">

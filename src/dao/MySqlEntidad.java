@@ -10,9 +10,6 @@ import java.util.List;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import entidad.AmpliacionesBean;
-import entidad.CargoBean;
-import entidad.EmpleadoBean;
 import entidad.EntidadBean;
 import util.MysqlDBConexion;
 
@@ -25,16 +22,15 @@ public class MySqlEntidad implements EntidadDAO{
 		PreparedStatement pstm = null;
 		int salida = -1;
 		try {
-			String sql = "insert into entidad values(null,?,?,?,?,?,?)";
+			String sql = "insert into entidad_estatal values(null,?,?,?,?,?)";
 			new MysqlDBConexion();
 			conn = MysqlDBConexion.getConexion();
 			pstm = conn.prepareStatement(sql);
-			pstm.setInt(1, obj.getIdEntidad());
-			pstm.setString(2, obj.getPoderEst());
-			pstm.setString(3, obj.getSector());
-			pstm.setInt(4, obj.getRuc());
-			pstm.setString(5, obj.getNombre());
-			pstm.setString(6, obj.getDireccion());
+			pstm.setString(1, obj.getPoderEst());
+			pstm.setString(2, obj.getSector());
+			pstm.setInt(3, obj.getRuc());
+			pstm.setString(4, obj.getNombre());
+			pstm.setString(5, obj.getDireccion());
 			
 			log.info(pstm);
 			
@@ -61,7 +57,7 @@ public class MySqlEntidad implements EntidadDAO{
 		List<EntidadBean> lista = new ArrayList<EntidadBean>();
 		
 		try {
-			String sql = "SELECT * FROM entidad where nombre like ? ;";
+			String sql = "SELECT * FROM entidad_estatal where nombre like ? ;";
 			new MysqlDBConexion();
 			conn = MysqlDBConexion.getConexion();
 			pstm = conn.prepareStatement(sql);
@@ -96,7 +92,7 @@ public class MySqlEntidad implements EntidadDAO{
 		PreparedStatement pstm = null;
 		int salida = -1;
 		try {
-			String sql = "delete from entidad where idEnt =?";
+			String sql = "delete from entidad_estatal where idEntidad = ?";
 			new MysqlDBConexion();
 			conn = MysqlDBConexion.getConexion();
 			pstm = conn.prepareStatement(sql);
@@ -149,56 +145,7 @@ public class MySqlEntidad implements EntidadDAO{
 		return salida;
 	}
 	
-	public List<EntidadBean> listaEntidad() {
-		Connection conn = null;
-		PreparedStatement pstm = null;
-		ResultSet rs = null;
-		
-		List<EntidadBean> lista = new ArrayList<EntidadBean>();
-		try {
-			String sql = "SELECT * FROM entidad;";
-			conn = new MysqlDBConexion().getConexion();
-			pstm = conn.prepareStatement(sql);
-			log.info(pstm);
-			rs = pstm.executeQuery();
-			EntidadBean bean = null;
-			while(rs.next()){
-				bean = new EntidadBean();
-				bean.setIdEntidad(rs.getInt(1));
-				bean.setPoderEst(rs.getString(2));
-				bean.setSector(rs.getString(3));
-				bean.setRuc(rs.getInt(4));
-				bean.setNombre(rs.getString(5));
-				bean.setDireccion(rs.getString(6));
-				
-				lista.add(bean);
-			}
-		} catch (Exception e) {
-			log.info(e);
-		} finally {
-			try {
-				if (rs != null)rs.close();
-				if (pstm != null)pstm.close();
-				if (conn != null)conn.close();
-			} catch (SQLException e) {}
-		}
-		return lista;
-	}		
-
-	public ArrayList listaExpediente() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public int insertaAmpliacion(AmpliacionesBean ampliacion) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	public ArrayList consultaAmpliacion() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 
 }
 

@@ -43,13 +43,15 @@ public class ServeltEmpleado extends HttpServlet {
 		
 		String filtro = request.getParameter("filtro");
 		List<EmpleadoBean> lista = null;
+		List<CargoBean> lista2 = null;
 		try {
 			lista =  dao.consultaEmpleadoPorCargo(filtro);
-			lista = dao.listaEmpleado();
+			lista2 = dao.listaCargo();
 		} catch (Exception e) {
 			e.printStackTrace();
 		} 
 		request.setAttribute("Empleado", lista);
+		request.setAttribute("Cargos", lista2);
 		request.getRequestDispatcher("/empleadoCRUD.jsp").forward(request, response);
 	}	
 	protected void registra(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -60,7 +62,8 @@ public class ServeltEmpleado extends HttpServlet {
 		String apePat= request.getParameter("apePat");
 		String apeMat= request.getParameter("apeMat");
 		String sueldo= request.getParameter("sueldo");
-		String idCargo = request.getParameter("idCargo");
+		String dniString = request.getParameter("dni");
+		String idCargo = request.getParameter("Cargo");
 		CargoBean cargo = new CargoBean();
 		cargo.setIdCargo(Integer.parseInt(idCargo));
 		
@@ -71,6 +74,7 @@ public class ServeltEmpleado extends HttpServlet {
 			obj.setApePat(apePat);
 			obj.setApeMat(apeMat);
 			obj.setSueldo(Double.parseDouble(sueldo));
+			obj.setDni(Integer.parseInt(dniString));
 			obj.setCargo(cargo);
 			
 			dao.insertaEmpleado(obj);
@@ -108,6 +112,7 @@ public class ServeltEmpleado extends HttpServlet {
 		String apePat= request.getParameter("apePat");
 		String apeMat = request.getParameter("apeMat");
 		String sueldo = request.getParameter("sueldo");
+		String dniString = request.getParameter("dni");
 		
 		String idCargo = request.getParameter("idCargo");
 		CargoBean cargo = new CargoBean();
@@ -121,6 +126,7 @@ public class ServeltEmpleado extends HttpServlet {
 			obj.setApePat(apePat);
 			obj.setApeMat(apeMat);
 			obj.setSueldo(Double.parseDouble(sueldo));
+			obj.setDni(Integer.parseInt(dniString));
 			obj.setCargo(cargo);
 			dao.actualizaEmpleado(obj);
 			lista =  dao.consultaEmpleadoPorCargo("");

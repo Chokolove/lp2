@@ -21,61 +21,6 @@ $(document).ready(function(){
 	});
 	
 });
-function sortTable(n) {
-	  var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
-	  table = document.getElementById("myTable");
-	  switching = true;
-	  // Set the sorting direction to ascending:
-	  dir = "asc"; 
-	  /* Make a loop that will continue until
-	  no switching has been done: */
-	  while (switching) {
-	    // Start by saying: no switching is done:
-	    switching = false;
-	    rows = table.getElementsByTagName("TR");
-	    /* Loop through all table rows (except the
-	    first, which contains table headers): */
-	    for (i = 1; i < (rows.length - 1); i++) {
-	      // Start by saying there should be no switching:
-	      shouldSwitch = false;
-	      /* Get the two elements you want to compare,
-	      one from current row and one from the next: */
-	      x = rows[i].getElementsByTagName("TD")[n];
-	      y = rows[i + 1].getElementsByTagName("TD")[n];
-	      /* Check if the two rows should switch place,
-	      based on the direction, asc or desc: */
-	      if (dir == "asc") {
-	        if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
-	          // If so, mark as a switch and break the loop:
-	          shouldSwitch = true;
-	          break;
-	        }
-	      } else if (dir == "desc") {
-	        if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
-	          // If so, mark as a switch and break the loop:
-	          shouldSwitch = true;
-	          break;
-	        }
-	      }
-	    }
-	    if (shouldSwitch) {
-	      /* If a switch has been marked, make the switch
-	      and mark that a switch has been done: */
-	      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-	      switching = true;
-	      // Each time a switch is done, increase this count by 1:
-	      switchcount ++; 
-	    } else {
-	      /* If no switching has been done AND the direction is "asc",
-	      set the direction to "desc" and run the while loop again. */
-	      if (switchcount == 0 && dir == "asc") {
-	        dir = "desc";
-	        switching = true;
-	      }
-	    }
-	  }
-	}
-
 function eliminar(id){	
 	$('input[id=id_elimina]').val(id);
 	$('#idFormElimina').submit();
@@ -84,10 +29,52 @@ function eliminar(id){
 function registrar(){	
 }
 
-function editar(id,idTra,estado,fchApertura){	
+function editarExpediente(id,idTra,estado,fchApertura){	
 	
 	$('input[id=id_ID]').val(id);
 	$('select[id=idTra]').val(idTra);
 	$('select[id=estadoAct]').val(estado);
 	$('input[id=fecha_ingresoAct]').val(fchApertura);
 }
+function editarDocumento(id,expe,desc,link){	
+	
+	$('input[id=id_ID]').val(id);
+	$('select[id=idExp]').val(expe);
+	$('input[id=desc]').val(desc);
+	$('input[id=lnk]').val(link);
+}
+function editarEntidad(id,poder,sector,ruc,nombre, direccion ){	
+	
+	$('input[id=id_ID]').val(id);
+	$('input[id=poder_est]').val(poder);
+	$('input[id=sector]').val(sector);
+	$('input[id=ruc]').val(ruc);
+	$('input[id=nombre]').val(nombre);
+	$('input[id=direccion]').val(direccion);
+}
+function editarEmpleado(id,nombre,apePat,apeMat,sueldo,idCargo){	
+	
+	$('input[id=id_ID]').val(id);
+	$('input[id=nombre]').val(nombre);
+	$('input[id=apePat]').val(apePat);
+	$('input[id=apeMat]').val(apeMat);
+	$('input[id=sueldo]').val(sueldo);
+	$('select[id=cargo]').val(idCargo);
+}
+function updateClock ( ){
+	var currentTime = new Date ( );
+	var currentHours = currentTime.getHours ( );
+	var currentMinutes = currentTime.getMinutes ( );
+
+	// Compose the string for display
+	var currentTimeString = currentHours + ":" + currentMinutes;
+	
+	
+	$("#clock").html(currentTimeString);
+	  	
+}
+
+$(document).ready(function()
+{
+setInterval('updateClock()', 1000);
+});

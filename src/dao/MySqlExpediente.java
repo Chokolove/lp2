@@ -29,7 +29,7 @@ public class MySqlExpediente implements ExpedienteDAO{
 		
 		List<ExpedienteBean> lista = new ArrayList<ExpedienteBean>();
 		try {
-			String sql = "SELECT * FROM expediente ex inner join trabajador_estatal tr on ex.idTrabajador=tr.idTrabajador inner join entidad_estatal ent on tr.entidad_estatal_idEntidad=ent.idEntidad where ent.nombre like ? ;";
+			String sql = "SELECT * FROM expediente ex inner join trabajador_estatal tr on ex.idTrabajador=tr.idTrabajador inner join entidad_estatal ent on tr.entidad_estatal_idEntidad=ent.idEntidad where ent.nombre like ? order by ex.NroExpediente ;";
 			conn = new MysqlDBConexion().getConexion();
 			pstm = conn.prepareStatement(sql);
 			pstm.setString(1, filtro + "%");
