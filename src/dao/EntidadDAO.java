@@ -3,7 +3,6 @@ package dao;
 import java.util.ArrayList;
 import java.util.List;
 
-import entidad.AmpliacionesBean;
 import entidad.DocumentoBean;
 import entidad.EmpleadoBean;
 import entidad.EntidadBean;

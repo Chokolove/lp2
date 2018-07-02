@@ -25,6 +25,14 @@ function eliminar(id){
 	$('input[id=id_elimina]').val(id);
 	$('#idFormElimina').submit();
 }
+function revisar(id){	
+	$('input[id="id_rev"]').val(id);
+	$('#idFormRev').submit();
+}
+function ConsulExpe(id){	
+	$('input[id="idExpe"]').val(id);
+	$('#idFormCons').submit();
+}
 
 function registrar(){	
 }
@@ -73,6 +81,7 @@ function updateClock ( ){
 	$("#clock").html(currentTimeString);
 	  	
 }
+
 
 $(document).ready(function()
 {

@@ -9,7 +9,6 @@
 		<div class="uk-navbar-content">
 			${sessionScope.objUsuario.empleado.nombre}
 			${sessionScope.objUsuario.empleado.apePat}
-			${sessionScope.objUsuario.empleado.cargo.idCargo}</div>
 
 	</ul>
 	<div class="uk-navbar-flip">

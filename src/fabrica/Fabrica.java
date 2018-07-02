@@ -1,10 +1,10 @@
 package fabrica;
 
-import dao.AmpliacionesDAO;
 import dao.DocumentoDAO;
 import dao.EmpleadoDAO;
 import dao.EntidadDAO;
 import dao.ExpedienteDAO;
+import dao.TramiteDAO;
 import dao.UsuarioDAO;
 
 public abstract class  Fabrica {
@@ -13,12 +13,11 @@ public abstract class  Fabrica {
 	public static final int SQLSERVER =2;
 
 	
-	public abstract AmpliacionesDAO getAmpliacionesDao();
 	public abstract ExpedienteDAO getExpedientesDAO();
 
 	public abstract DocumentoDAO getDocumentosDAO();
 
-
+	public abstract TramiteDAO getTramiteDAO();
 	public abstract EmpleadoDAO getEmpleadoDAO();
 	public abstract EntidadDAO getEntidadDAO();
 	public abstract UsuarioDAO getUsuarioDAO();

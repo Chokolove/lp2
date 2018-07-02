@@ -65,13 +65,13 @@ DEFAULT CHARACTER SET = utf8;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `BD_PROYECTO`.`documento` (
   `idDoc` INT NOT NULL AUTO_INCREMENT,
-  `NroExpediente` INT NOT NULL,
+  `idTramite` INT NOT NULL,
   `descripcion` varchar(255) not null,
   `link` VARCHAR(255) NOT NULL,
   PRIMARY KEY (`idDoc`),
-  CONSTRAINT `fk_documento_expediente1`
-    FOREIGN KEY (`NroExpediente`)
-    REFERENCES `BD_PROYECTO`.`expediente` (`NroExpediente`)
+  CONSTRAINT `fk_documento_tramite1`
+    FOREIGN KEY (`idTramite`)
+    REFERENCES `BD_PROYECTO`.`tramite` (`idTramite`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
@@ -138,34 +138,21 @@ DEFAULT CHARACTER SET = utf8;
 
 
 
-CREATE TABLE IF NOT EXISTS `bd_proyecto`.`ampliaciones` (
-  `idampliaciones` INT NOT NULL AUTO_INCREMENT,
-  `idEmpleado` INT NULL,
+CREATE TABLE IF NOT EXISTS `bd_proyecto`.`tramite` (
+  `idTramite` INT NOT NULL AUTO_INCREMENT,
+  `NroExpediente` INT NOT NULL,
   `fchVenc` DATE NULL,
   `estado` VARCHAR(45) NULL,
   `tipo` VARCHAR(45) NULL,
-  PRIMARY KEY (`idampliaciones`),
-  CONSTRAINT `fk_ampliacines_empleado1`
-    FOREIGN KEY (`idEmpleado`)
-    REFERENCES `BD_PROYECTO`.`empleado_servir` (`idEmpleado`)
+  PRIMARY KEY (`idTramite`),
+  CONSTRAINT `fk_tramite_expediente1`
+    FOREIGN KEY (`NroExpediente`)
+    REFERENCES `BD_PROYECTO`.`expediente` (`NroExpediente`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
-create table if not exists `bd_proyecto`.`detalleAmplVSDoc` (
-  `idampliaciones` INT NOT NULL,
-  `idDoc` INT NOT NULL,
-  CONSTRAINT `fk_ampliacines_doc`
-    FOREIGN KEY (`idampliaciones`)
-    REFERENCES `BD_PROYECTO`.`ampliaciones` (`idampliaciones`),
-  CONSTRAINT `fk_doc_ampl`
-	FOREIGN KEY (`idDoc`)
-	REFERENCES `BD_PROYECTO`.`documento` (`idDoc`)
-	ON DELETE NO ACTION
-	ON UPDATE NO ACTION)
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
 
 
 SET SQL_MODE=@OLD_SQL_MODE;
@@ -200,23 +187,19 @@ INSERT INTO `bd_proyecto`.`expediente` (`idTrabajador`,  `Estado`, `fchApertura`
 INSERT INTO `bd_proyecto`.`expediente` (`idTrabajador`,  `Estado`, `fchApertura`) VALUES ('3', 'Pendiente', '2018-06-06');
 INSERT INTO `bd_proyecto`.`expediente` (`idTrabajador`,  `Estado`, `fchApertura`) VALUES ('4', 'Revisado', '2018-07-07');
 
-INSERT INTO `bd_proyecto`.`documento` (`NroExpediente`, `descripcion`, `link`) VALUES ('1', 'DNI', 'Test');
-INSERT INTO `bd_proyecto`.`documento` (`NroExpediente`, `descripcion`, `link`) VALUES ('1', 'Razon', 'Test');
-INSERT INTO `bd_proyecto`.`documento` (`NroExpediente`, `descripcion`, `link`) VALUES ('2', 'DNI', 'Test');
-INSERT INTO `bd_proyecto`.`documento` (`NroExpediente`, `descripcion`, `link`) VALUES ('2', 'DNI Afectado', 'Test');
+INSERT INTO `bd_proyecto`.`documento` (`idTramite`, `descripcion`, `link`) VALUES ('1', 'DNI', 'Test');
+INSERT INTO `bd_proyecto`.`documento` (`idTramite`, `descripcion`, `link`) VALUES ('1', 'Razon', 'Test');
+INSERT INTO `bd_proyecto`.`documento` (`idTramite`, `descripcion`, `link`) VALUES ('2', 'DNI', 'Test');
+INSERT INTO `bd_proyecto`.`documento` (`idTramite`, `descripcion`, `link`) VALUES ('2', 'DNI Afectado', 'Test');
 
-INSERT INTO `bd_proyecto`.`ampliaciones` (`idEmpleado`, `fchVenc`, `estado`, `tipo`) VALUES ('1', '2018-10-10', 'Pendiente', 'A');
-INSERT INTO `bd_proyecto`.`ampliaciones` (`idEmpleado`, `fchVenc`, `estado`, `tipo`) VALUES ('2', '2018-09-09', 'Pendiente', 'B');
-INSERT INTO `bd_proyecto`.`ampliaciones` (`idEmpleado`, `fchVenc`, `estado`, `tipo`) VALUES ('1', '2018-06-10', 'Pendiente', 'A');
-INSERT INTO `bd_proyecto`.`ampliaciones` (`idEmpleado`, `fchVenc`, `estado`, `tipo`) VALUES ('1', '2018-04-04', 'Vencido', 'A');
+INSERT INTO `bd_proyecto`.`tramite` (`NroExpediente`, `fchVenc`, `estado`, `tipo`) VALUES ('1', '2018-10-10', 'Pendiente', 'A');
+INSERT INTO `bd_proyecto`.`tramite` (`NroExpediente`, `fchVenc`, `estado`, `tipo`) VALUES ('2', '2018-09-09', 'Pendiente', 'B');
+INSERT INTO `bd_proyecto`.`tramite` (`NroExpediente`, `fchVenc`, `estado`, `tipo`) VALUES ('1', '2018-06-10', 'Pendiente', 'A');
+INSERT INTO `bd_proyecto`.`tramite` (`NroExpediente`, `fchVenc`, `estado`, `tipo`) VALUES ('1', '2018-04-04', 'Vencido', 'A');
 
-INSERT INTO `bd_proyecto`.`detalleamplvsdoc` (`idampliaciones`, `idDoc`) VALUES ('1', '1');
-INSERT INTO `bd_proyecto`.`detalleamplvsdoc` (`idampliaciones`, `idDoc`) VALUES ('1', '2');
-INSERT INTO `bd_proyecto`.`detalleamplvsdoc` (`idampliaciones`, `idDoc`) VALUES ('2', '3');
-INSERT INTO `bd_proyecto`.`detalleamplvsdoc` (`idampliaciones`, `idDoc`) VALUES ('2', '4');
 
 INSERT INTO `bd_proyecto`.`usuario` (`usuario`, `contrasena`, `empleado_idEmpleado`) VALUES ('admin', 'qwer', '3');
 INSERT INTO `bd_proyecto`.`usuario` (`usuario`, `contrasena`, `empleado_idEmpleado`) VALUES ('usu1', '1234', '1');
-INSERT INTO `bd_proyecto`.`usuario` (`usuario`, `contrasena`, `empleado_idEmpleado`) VALUES ('sec', '1234', '6');
-INSERT INTO `bd_proyecto`.`usuario` (`usuario`, `contrasena`, `empleado_idEmpleado`) VALUES ('ana', '1234', '5');
+INSERT INTO `bd_proyecto`.`usuario` (`usuario`, `contrasena`, `empleado_idEmpleado`) VALUES ('sec', '1234', '5');
+INSERT INTO `bd_proyecto`.`usuario` (`usuario`, `contrasena`, `empleado_idEmpleado`) VALUES ('ana', '1234', '4');
 
